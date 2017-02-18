@@ -26,7 +26,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("home"), contactData.getHomephone());
         type(By.name("email"), contactData.getEmail());
     }
-    
+
     public void initContactCreation() {
         click(By.linkText("add new"));
     }
