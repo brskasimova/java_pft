@@ -5,6 +5,8 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.Objects;
+
 public class HelperBase {
     protected WebDriver wd;
 
@@ -19,9 +21,12 @@ public class HelperBase {
     protected void type(By locator, String text) {
         click(locator);
         if (text != null) {
-            wd.findElement(locator).clear();
-            wd.findElement(locator).sendKeys(text);
-        } 
+            String existingText = wd.findElement(locator).getAttribute("value");
+            if (! Objects.equals(text, existingText)) {
+                wd.findElement(locator).clear();
+                wd.findElement(locator).sendKeys(text);
+            }
+        }
     }
 
     public boolean isAlertPresent() {
