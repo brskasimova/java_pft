@@ -51,4 +51,15 @@ public class ContactHelper extends HelperBase {
     public void deletedSelectionContact() {
         click(By.xpath("//div[@id='content']/form[2]/input[2]"));
     }
+
+    public void createContact(ContactData contact, boolean c) {
+        initContactCreation();
+        fillContactForm((contact),c);
+        submitContactCreation();
+        returntoHomePage();
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
+    }
 }
