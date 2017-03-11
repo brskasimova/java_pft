@@ -2,11 +2,11 @@ package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
     private int id;
-    private final String firstname;
-    private final String lastname;
-    private final String address;
-    private final String homephone;
-    private final String email;
+    private String firstname;
+    private String lastname;
+    private String address;
+    private String homephone;
+    private String email;
     private String group;
 
     public ContactData(String firstname, String lastname, String address, String homephone, String email, String group) {
