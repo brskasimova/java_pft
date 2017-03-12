@@ -124,4 +124,15 @@ public class ContactHelper extends HelperBase {
                 .withHomephone(home).withMobilephone(mobile).withWorkphone(work).withAddress(address)
                 .withEmail(email).withEmail2(email2).withEmail3(email3);
     }
+
+    public ContactData infoFromFullInfoForm(ContactData contact) {
+        initFullInfoContactById(contact.getId());
+        String allInfo = wd.findElement(By.id("content")).getText();
+
+        return new ContactData().withId(contact.getId()).withFullInfo(allInfo);
+    }
+
+    private void initFullInfoContactById(int id) {
+        wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
+    }
 }
