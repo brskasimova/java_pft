@@ -16,7 +16,9 @@ public class ContactPhoneTests extends TestBase{
     public void ensurePreconditions() {
         app.goTo().homePage();
         if (app.contact().all().size() == 0) {
-            app.contact().create(new ContactData().withFirstname("contactname").withLastname("contactlastname"));
+            app.contact().create(new ContactData()
+                    .withFirstname("contactname").withLastname("contactlastname").withAddress("contactaddress")
+                    .withHomephone("contacthomephone"));
         }
     }
 
@@ -38,6 +40,5 @@ public class ContactPhoneTests extends TestBase{
 
     public static String cleaned(String phone) {
         return phone.replaceAll("\\s", "").replaceAll("[-()]", "");
-
     }
 }
