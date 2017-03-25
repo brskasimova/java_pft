@@ -139,4 +139,36 @@ public class ContactHelper extends HelperBase {
     private void initFullInfoContactById(int id) {
         wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
     }
+
+    public void addContactToGroup(int id, String name) {
+        selectContactById(id);
+        selectGroupInList(name);
+        initAddContactInGroup();
+    }
+
+    private void initAddContactInGroup() {
+        click(By.name("add"));
+    }
+
+    private void selectGroupInList(String name) {
+        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(name);
+    }
+
+    private void selectContactById(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    }
+
+    public void removeFromGroup(int id, String name) {
+        selectGroupToView(name);
+        selectContactById(id);
+        initRemoveContactFromGroup();
+    }
+
+    private void selectGroupToView(String name) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(name);
+    }
+
+    private void initRemoveContactFromGroup() {
+        click(By.name("remove"));
+    }
 }
