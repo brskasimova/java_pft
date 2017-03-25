@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,10 +22,12 @@ public class ContactModificationTests extends TestBase{
 
     @Test
     public  void testContactModification() {
+        Groups groups = app.db().groups();
         Contacts before = app.db().contacts();
         ContactData modifyContact = before.iterator().next();
         ContactData contact = new ContactData()
-                .withId(modifyContact.getId()).withFirstname("modifyfirstname").withLastname("modifylastname").withAddress("modifyaddress").withHomephone("modifyhomephone").withEmail("modifyemail").withGroup("testname1");
+                .withId(modifyContact.getId()).withFirstname("modifyfirstname").withLastname("modifylastname").withAddress("modifyaddress").withHomephone("modifyhomephone").withEmail("modifyemail")
+                .inGroup(groups.iterator().next());
         app.contact().modify(contact);
         assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.db().contacts();
