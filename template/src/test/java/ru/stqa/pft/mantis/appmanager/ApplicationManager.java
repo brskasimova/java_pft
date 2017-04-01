@@ -42,12 +42,4 @@ public class ApplicationManager {
     public void stop() {
         wd.quit();
     }
-
-    public HttpSession newSession() {
-        return new HttpSession(this);
-    }
-
-    public String getProperty(String key) {
-        return properies.getProperty(key);
-    }
 }
