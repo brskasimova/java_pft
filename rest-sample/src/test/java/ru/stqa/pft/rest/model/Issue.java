@@ -1,10 +1,11 @@
-package ru.stqa.pft.rest;
+package ru.stqa.pft.rest.model;
 
 public class Issue {
 
     private int id;
     private String subject;
     private String description;
+    private String state_name;
 
     public int getId() {
         return id;
@@ -28,6 +29,20 @@ public class Issue {
         return description;
     }
 
+    public Issue withDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public String getStateName() {
+        return state_name;
+    }
+
+    public Issue withStatename(String state_name) {
+        this.state_name = state_name;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,8 +64,4 @@ public class Issue {
         return result;
     }
 
-    public Issue withDescription(String description) {
-        this.description = description;
-        return this;
-    }
 }
