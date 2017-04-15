@@ -1,0 +1,25 @@
+{
+  "testCases" : [ {
+    "uid" : "7526fc99db96677c",
+    "name" : "testGroupModification",
+    "title" : "Test group modification",
+    "time" : {
+      "start" : 1492261566961,
+      "stop" : 1492261569286,
+      "duration" : 2325
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "f3375ef8e5afc544",
+    "name" : "testGroupModification",
+    "title" : "Test group modification",
+    "time" : {
+      "start" : 1492256509399,
+      "stop" : 1492256511461,
+      "duration" : 2062
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  } ]
+}
